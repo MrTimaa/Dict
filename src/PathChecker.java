@@ -42,8 +42,8 @@ public class PathChecker {
 
                 dictionary = dictionaryFactory.get(dictionaryChoice).apply(filePath);
 
-                Manager manager = new Manager(dictionary);
-                manager.manage();
+                Menu menu = new Menu(dictionary);
+                menu.manage();
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Неверный ввод. Пожалуйста, введите число.");

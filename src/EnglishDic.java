@@ -10,14 +10,14 @@ class EnglishDic implements DicInterface {
         dictionary = new HashMap<>();
         regex = "^[a-zA-Z]{4}$";
         this.filePath = filePath;
-        util.readFromFile(dictionary, filePath, regex);
+        Method.readFromFile(dictionary, filePath, regex);
     }
 
     @Override
     public boolean addEntry(String key, String value) {
-        boolean result = util.addEntry(dictionary, key, value, regex);
+        boolean result = Method.addEntry(dictionary, key, value, regex);
         if (result) {
-            util.writeToFile(dictionary, filePath);
+            Method.writeToFile(dictionary, filePath);
         }
         return result;
     }
@@ -27,16 +27,16 @@ class EnglishDic implements DicInterface {
     }
     @Override
     public boolean deleteByKey(String key) {
-        boolean result = util.deleteByKey(dictionary, key);
+        boolean result = Method.deleteByKey(dictionary, key);
         if (result) {
-            util.writeToFile(dictionary, filePath);
+            Method.writeToFile(dictionary, filePath);
         }
         return result;
     }
 
     @Override
     public String findByKey(String key) {
-        return util.findByKey(dictionary, key);
+        return Method.findByKey(dictionary, key);
     }
 
     @Override
@@ -46,6 +46,6 @@ class EnglishDic implements DicInterface {
 
     @Override
     public void writeToFile() {
-        util.writeToFile(dictionary, filePath);
+        Method.writeToFile(dictionary, filePath);
     }
 }
